@@ -1,0 +1,50 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "position",
+            "otherEntityName": "position",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "name",
+            "ownerSide": true
+        },
+        {
+            "relationshipId": 2,
+            "relationshipName": "team",
+            "otherEntityName": "team",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "points",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "rebounds",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "assits",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "birthday",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20160116160008",
+    "dto": "no",
+    "service": "no",
+    "pagination": "pagination"
+}

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <property name="now" value="now()" dbms="mysql,h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="now" value="sysdate" dbms="oracle"/>
+
+    <property name="autoIncrement" value="true" dbms="mysql,h2,postgresql,oracle"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle"/>
+
+    <!--
+        Added the entity Player.
+    -->
+    <changeSet id="20160116160008" author="jhipster">
+        <createTable tableName="player">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+            <column name="points" type="integer"/>
+            <column name="rebounds" type="integer"/>
+            <column name="assits" type="integer"/>
+            <column name="birthday" type="date"/>
+            <column name="team_id" type="bigint"/>
+        </createTable>
+        
+        <createTable tableName="player_position">
+            <column name="positions_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="players_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="players_id, positions_id" tableName="player_position"/>
+
+        <addForeignKeyConstraint baseColumnNames="players_id"
+                                 baseTableName="player_position"
+                                 constraintName="fk_player_position_position_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="player"/>
+
+        <addForeignKeyConstraint baseColumnNames="positions_id"
+                                 baseTableName="player_position"
+                                 constraintName="fk_player_position_player_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="position"/>
+        
+        <addForeignKeyConstraint baseColumnNames="team_id"
+                                 baseTableName="player"
+                                 constraintName="fk_player_team_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="team"/>
+
+    </changeSet>
+</databaseChangeLog>

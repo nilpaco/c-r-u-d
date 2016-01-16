@@ -1,0 +1,32 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "player",
+            "otherEntityName": "player",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "team"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "city",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "birthday",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20160116160112",
+    "dto": "no",
+    "service": "no",
+    "pagination": "pagination"
+}

@@ -1,0 +1,80 @@
+
+<div>
+    <h2><span>Player</span> {{player.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span>Name</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{player.name}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Points</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{player.points}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Rebounds</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{player.rebounds}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Assits</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{player.assits}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Birthday</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{player.birthday | date:'mediumDate'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>position</span>
+                </td>
+                <td>
+                    <span ng-repeat="position in player.positions">
+                        <a class="form-control-static" ui-sref="position.detail({id: {{position.id}}})">{{position.name}}</a>{{$last ? '' : ', '}}
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>team</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="team.detail({id:player.team.id})">{{player.team.name}}</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

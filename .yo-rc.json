@@ -1,0 +1,24 @@
+{
+  "generator-jhipster": {
+    "baseName": "CRUD",
+    "packageName": "com.crud",
+    "packageFolder": "com/crud",
+    "authenticationType": "session",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "elasticsearch",
+    "useSass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "enableTranslation": false,
+    "enableSocialSignIn": false,
+    "rememberMeKey": "435269a382236230c13cb32ba13b7f009d139734",
+    "testFrameworks": [
+      "gatling"
+    ]
+  }
+}

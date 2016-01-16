@@ -1,0 +1,68 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myPlayerLabel">Create or edit a Player</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="player.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="player.name"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_points">Points</label>
+            <input type="number" class="form-control" name="points" id="field_points"
+                    ng-model="player.points"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_rebounds">Rebounds</label>
+            <input type="number" class="form-control" name="rebounds" id="field_rebounds"
+                    ng-model="player.rebounds"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_assits">Assits</label>
+            <input type="number" class="form-control" name="assits" id="field_assits"
+                    ng-model="player.assits"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_birthday">Birthday</label>
+            <input id="field_birthday" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="player.birthday" is-open="datePickerForBirthday.status.opened"
+            />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="datePickerForBirthdayOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label for="field_position">position</label>
+            <select class="form-control" id="field_position" multiple name="position" ng-model="player.positions" ng-options="position as position.name for position in positions track by position.id"></select>
+        </div>
+        <div class="form-group">
+            <label for="field_team">team</label>
+            <select class="form-control" id="field_team" name="team" ng-model="player.team" ng-options="team as team.name for team in teams track by team.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>
